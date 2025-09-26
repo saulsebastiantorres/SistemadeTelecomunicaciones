@@ -1,0 +1,37 @@
+#include <iostream>
+#include <chrono>
+using namespace std;
+
+double PrecioMinLlamada[5]; //arreglo de plan
+void CargarPlan(){ //funcion de 
+    PrecioMinLlamada[0] = 0.2;
+    PrecioMinLlamada[1] = 0.5;
+    PrecioMinLlamada[2] = 0.7;
+    PrecioMinLlamada[3] = 1.0;
+    PrecioMinLlamada[4] = 1.2; 
+}
+void  ImprimirPlan(){
+    cout << "Plan 0: " <<PrecioMinLlamada[0]<<endl;
+    cout << "Plan 1: " <<PrecioMinLlamada[1]<<endl;
+    cout << "Plan 2: " <<PrecioMinLlamada[2]<<endl;
+    cout << "Plan 3: " <<PrecioMinLlamada[3]<<endl;
+    cout << "Plan 4: " <<PrecioMinLlamada[4]<<endl;
+}
+int main() {
+    
+    auto inicio_generacion = chrono::high_resolution_clock::now();
+    CargarPlan();
+    auto fin_generacion = chrono::high_resolution_clock::now();
+    
+    chrono::duration<double> duracion_generacion = fin_generacion - inicio_generacion;
+
+    auto inicio_impresion = chrono::high_resolution_clock::now();
+    ImprimirPlan();
+    auto fin_impresion = chrono::high_resolution_clock::now();
+    
+    chrono::duration<double> duracion_impresion = fin_impresion - inicio_impresion;
+    cout << "Tiempo de generacion: " << duracion_generacion.count() * 1000 << " milisegundos" << endl;
+    cout << "Tiempo de impresion: " << duracion_impresion.count() * 1000 << " milisegundos" << endl;
+
+    return 0;
+}
