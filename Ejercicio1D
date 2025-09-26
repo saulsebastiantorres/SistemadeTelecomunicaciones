@@ -1,0 +1,28 @@
+#include <iostream>
+#include <chrono>
+using namespace std;
+
+string Estado[2]={"Pendiente","pagado"}; //arreglo de plan
+
+void  ImprimirEstado(){
+    cout << "Estado 0: " <<Estado[0]<<endl;
+    cout << "Estado 1: " <<Estado[1]<<endl;
+    
+}
+int main() {
+    
+    auto inicio = chrono::high_resolution_clock::now();
+    
+    ImprimirEstado();
+    
+    auto fin = chrono::high_resolution_clock::now();
+
+    auto duracion = chrono::duration_cast<chrono::microseconds>(fin - inicio);
+    
+    cout << "Tiempo de Impresion de estados: "
+         << duracion.count() << " microsegundos"
+         << endl;
+    
+
+    return 0;
+}
