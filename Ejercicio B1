@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int detalleCliente[10000][3];
+void llenarDetalleCliente(){
+    for(int i=0;i<10000;i++){
+        detalleCliente[i][0]=rand()%2;
+        detalleCliente[i][1]=rand()%83+1943;
+        detalleCliente[i][2]=rand()%195;
+    }
+}
+void mostrarDetalleCliente(){
+    for(int i=0;i<10000;i++){
+        
+            cout<<detalleCliente[i][0]<<" | "<<detalleCliente[i][1]<<" | "<<detalleCliente[i][2]<<endl;
+    }
+}
+
+int main() {
+    
+    llenarDetalleCliente();
+    mostrarDetalleCliente();
+
+    return 0;
+}
