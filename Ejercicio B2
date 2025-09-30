@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int servicioTelefonico[12000][3];
+
+void llenarServicioTelefonico(){
+    for(int i=0;i<12000;i++){
+        servicioTelefonico[i][0]=rand()%9999998+70000000;
+        servicioTelefonico[i][1]=rand()%5;
+        servicioTelefonico[i][2]=rand()%10000;
+    }
+}
+void mostrarDetalleCliente(){
+    for(int i=0;i<10000;i++){
+        cout<<servicioTelefonico[i][0]<<" | "<<servicioTelefonico[i][1]<<" | "<<servicioTelefonico[i][2]<<endl;
+    }
+}
+int main() {
+    
+    llenarServicioTelefonico();
+    mostrarDetalleCliente();
+    
+    return 0;
+}
